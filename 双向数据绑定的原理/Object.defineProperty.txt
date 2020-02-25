@@ -1,0 +1,25 @@
+﻿Object.defineProperty定义对象属性
+
+
+Object.defineProperty(obj,prop,descriptor）
+
+Object.defineProperty(需要定义的属性对象,需要监听的属性,将被定义或修改的属性描述符）
+
+var obj = {
+  name: "马瑞",
+}
+
+Object.defineProperty(obj, 'name', {
+  set（val）{//如果obj对象的属性值被修改了，那么才会调用set方法并且才能拿到obj.name被修改的返回值
+    console.log('set', val);
+  }，
+  get（）{//如果定义对象的属性被引用了那么才会执行get方法。
+    console.log('get');
+  }，
+
+}）;
+
+oBtn.onclick = function () {
+  obj.name = 'Susan';
+  obj.name; 
+}

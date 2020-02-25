@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>链式调用+回调函数</title>
+</head>
+
+<body>
+
+    <script>
+        var fn = {
+            fn1: function () {
+                console.log(1);
+                return this;
+            },
+            fn2: function () {
+                console.log(2);
+                return this;
+            },
+            fn3: function () {
+                console.log(3);
+                return this;
+            }
+        };
+        //fn.fn1().fn2().fn3();
+        /*
+            链式调用的原理：
+            当调用对象的内部方法时，该方法内部的this其指向本身，
+            也就是普通函数的this指向其发生的对象。
+            所以每次把对象再返回回来，对象就继续调用方法了，从而可以链式操作了
+        */
+        
+        //回调 
+        //建议回顾事件循环的机制再做此思考题
+        function easyPromise(fn) {
+            var that = this;
+            this.then = function (cb) {
+                that.cb = cb;
+            }
+            this.resolve = function (data) {
+                that.cb(data);
+            }
+            fn(this.resolve);
+        }
+        new easyPromise((resolve) => {
+            setTimeout(() => {
+                resolve("延迟执行");
+            }, 1000);
+        }).then((data) => {
+            console.log(data);
+        })
+
+    </script>
+</body>
+
+</html>

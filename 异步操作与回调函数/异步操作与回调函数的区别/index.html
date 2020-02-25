@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function easyPromise(fn) {
+            var _this = this;
+            this.anonymous = function(data){
+                console.log(data);
+            };
+            this.then = function (cb) {
+                _this.anonymous = cb;//调用then方法传一个匿名函数赋值给anonymous
+            };
+            this.resolve = function (data) {
+                _this.anonymous(data);//此时再调用anonymous方法
+            };
+            fn(this.resolve);
+        };
+        var promise = new easyPromise(function (result) {
+            //result("延时执行");
+            setTimeout(function () {
+                result("延时执行");
+            }, 1000);
+        });
+        promise.then(//首先执行的是then方法,then方法
+
+            function (data) {
+                console.log('data');
+            }
+        );
+        console.log('promise');
+
+
+
+        /*
+        fn形参是调用easyPromise函数时传递的一个匿名函数，
+        fn(this.resolve)中的this.resolve是调用easyPromise方法中匿名函数的方法，
+        并且把this.resolve传递给这个这个匿名函数的返回值，但是这个返回值不是一个值，
+        而是this.resolve方法的一个指针，那么当调用this.resolve这个方法时就需要执行easyPromise对象内置的resolve方法,
+        这时就需要通过easyPromise方法中携带匿名函数的参数去调用this.resolve方法，当传值的时候
+
+
+        */
+    </script>
+</body>
+
+</html>

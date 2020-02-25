@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>双向数据绑定的原理1</title>
+</head>
+
+<body>
+    <input type="text" />
+    <p></p>
+    <button id="btn">按钮</button>
+    <script>
+        var inp = document.querySelector("input");
+        var p = document.querySelector("p");
+        var oBtn = document.getElementById('btn');
+        let obj = {
+            hello: 'hello world', //表示私有变量
+            name: '孙宇'
+        };
+    </script>
+
+    <script src="./input.js"></script>
+
+    <script src="./btn.js"></script>
+
+</body>
+
+</html>

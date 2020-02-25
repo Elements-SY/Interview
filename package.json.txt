@@ -1,0 +1,20 @@
+﻿
+devDependencies保存的依赖是只用于开发环境，不用于生产环境；
+
+dependencies保存的依赖用于生产环境。
+
+npm i module_name  -S  = >  npm install module_name --save    写入到 dependencies 对象（生产环境）
+
+npm i module_name  -D  => npm install module_name --save-dev   写入到 devDependencies 对象（开发环境）
+
+npm i module_name  -g  全局安装
+
+打包生产环境资源时， dependencies 中的依赖会被打包，
+
+而 devDependencies 中的依赖不会被打包。 
+
+开发环境依赖安装到 dependencies ，本地和生产环境都没问题，
+
+就是文件会大一点而已。 生产环境依赖安装到 devDependencies，
+
+本地没啥问题，生产环境会因为缺少依赖而无法正常运行。

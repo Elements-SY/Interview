@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var str = "X98Y87Z65";
+        // 三个数字部分加了小括号，表示子表达式
+        var reg = /^X(\d+)Y(\d+)Z(\d+)$/;
+        reg.test(str); // 此处使用exec()等其他正则表达式的匹配方法也可，下同
+        console.log(RegExp.$1); // 98
+        console.log(RegExp.$2); // 87
+        console.log(RegExp.$3); // 65
+
+        var r = /^(\d{4})-(\d{1,2})-(\d{1,2})$/;
+        var date = '1985-10-15';
+        r.test(date);
+        console.log(RegExp.$1); // 98
+        console.log(RegExp.$2); // 87
+        console.log(RegExp.$3); // 65
+    </script>
+</body>
+
+</html>

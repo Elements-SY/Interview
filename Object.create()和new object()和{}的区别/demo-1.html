@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Object.create()和new object()和{}的区别</title>
+</head>
+
+<body>
+    <script>
+        function Puppy(name) {
+            this.name = name || '小黄';
+        }
+
+        Puppy.prototype.eat = function () {
+            this.food = '骨头';
+            console.log(this.food);
+        }
+        function Dog() {
+            Puppy.call(this, '阿黄');
+            this.color = '黄色';
+        }
+        Dog.prototype = Object.create(Puppy.prototype);
+        var littleDog = new Dog();
+        var dog = new Dog();
+        console.log(littleDog.__proto__);// Puppy {}原型有eat方法和Puppy构造器
+        console.log(Puppy.prototype);// {eat: ƒ, constructor: ƒ Puppy(name)}
+        console.log(littleDog.__proto__ === Puppy.prototype);// false
+
+        // var obj = { x: 1 };
+        // var obj1 = new Object(obj);
+        // var obj2 = Object.create(obj); 
+        // var obj3 = Object.create(null); 
+        // console.log(obj1.__proto__);// 顶级原型
+        // console.log(obj2.__proto__);//没有原型输出 {x: 1}
+        // console.log(obj3.__proto__);//undefined
+        
+    </script>
+</body>
+
+</html>

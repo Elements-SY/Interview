@@ -1,0 +1,24 @@
+﻿// 对于typeof判断对象和数组时返回的都是object，如果想要判断当前的变量是不是一个数组可以使用Array.isArray([])来判断；
+
+// 但是对于判断一个变量不是数组对象而是一个有键值对的对象，这个时候我们可以使用!{}.length来判断，
+
+// 这种方式是利用有键值对的对象是不会有length的，其它的字符串或者数组都有length。
+
+// 除此之外还可以使用Object.prototype.toString.call({}).toLowerCase() == "[object object]"来判断；
+
+// Object.prototype.toString.call({})返回的是[object Object]为了方便再通过toLowerCase()转成小写的，
+
+// 最后判断是否等于"[object object]"即可
+
+
+//对于Array、Error、RegExp、Number、Function使用typeof 判断统统返回function因为它们都是通过function构造成的对象
+
+判断一个对象是不是函数对象也可以通过：
+
+console.log(Object.prototype.toString.call(RegExp));//[object Function]
+
+typeof其实就是判断该对象是什么类型的实例 object或string或number等
+
+Object.prototype.toString.call()用来检测一个对象在原型链中的类型值；最终结果返回类型字符串[object Function]
+
+instanceof 用来判断一个对象在原型链中是否存在一个构造函数的 prototype 属性；最终结果返回布尔值 true或者false

@@ -1,0 +1,8 @@
+﻿require和import区别
+
+
+
+require：运行时加载
+
+
+import：编译时加载（效率更高）【由于是编译时加载，所以import命令会提升到整个模块的头部】

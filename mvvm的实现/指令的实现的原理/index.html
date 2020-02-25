@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <h2 v-text="message"></h2>
+        <input type="text" id="el">
+    </div>
+    <script src="./templateCompoler.js"></script>
+    <script src="./mvvm.js"></script>
+    <script>
+        var vm = new MVVM({
+            el: '#app',
+            data: {
+                message: '简易版的Vue'
+            }
+        })
+        var el = document.getElementById('el');
+        var els = document.getElementsByTagName('h2')[0];
+        el.onkeyup = function () {
+            console.log(this.value);
+            vm.$data.message = this.value;
+            //obj.name = this.value;
+        }
+    </script>
+</body>
+
+</html>

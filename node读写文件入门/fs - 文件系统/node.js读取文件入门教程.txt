@@ -1,0 +1,30 @@
+﻿var fs = require("fs");
+
+var fs = require("fs");模块是Node.js内置的fs模块就是文件系统模块，负责读写文件。和所有其它
+
+JavaScript模块不同的是，fs模块同时提供了异步和同步的方法。
+
+详情请访问: http://nodejs.cn/api/fs.html
+
+
+node.js读取文件需要一个fs.js模块
+
+在使用node.js读写文件时，首先通过require方法传入一个字符串参数'fs'，
+
+var fs = require('fs'); // 引入fs模块,这是node.js系统的方法，当传入'fs'字符串时会返回一个对象，那么既然是对象，由此可见对象就必然会有属性和方法。话说回来了，既然是一个对象，那么对象就会有属性和方法。那么读写文件一定是通过fs对象的一个方法来传入一个读写文件所在的路径，那么既然读写文件还有一点，第二个参数一定是一个回调函数，不然我们在读写文件时是无法把数据返回过来，而这个回调函数一定会至少有两个常规参数，那么是读写文件出错的参数err和data参数。
+
+但是想了想读写文件除了需要读写文件的所在路径的参数和返回数据的回调函数，还有一个就是字符集编码。那么还需要一个字符集编码的参数。如果不给第二个参数字符集编码参数就会返回buffer，也就是会把读写的数据转换成buffer类型。
+
+
+切记极为重点的细节，就是不管是读写什么文件，一定要把字符集编码对应起来，如果读取的txt文件字符集编码是utf-8的，那么在设置fs读取txt文件时的编码也要是utf-8的。
+
+const fs = require('fs');
+let path = './fs - 文件系统.txt';
+let options = {
+	encoding: 'utf-8',
+};
+let callback = (err, data) => {
+	if (err) throw err;
+	console.log(data);
+};
+fs.readFile(path, options, callback);

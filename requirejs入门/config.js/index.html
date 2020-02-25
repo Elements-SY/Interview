@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script src="./require.js"></script>
+    <script>
+
+        requirejs.config({
+            baseUrl: './public/js',
+            paths: {
+                hello: 'hello'
+            },
+            shim: {
+                hello: {
+                    init: function () {
+                        return {
+                            hello: hello,
+                            hello2: hello2
+                        }
+                    }
+                }
+            }
+        });
+
+        requirejs(['hello'], function (hello) {
+            hello.hello1();
+            hello.hello2();
+        });
+    </script>
+</body>
+
+</html>

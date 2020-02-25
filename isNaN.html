@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>isNaN</title>
+</head>
+
+<body>
+    <script>
+        console.log(isNaN(0));//false
+        console.log(isNaN(1));//false
+        console.log(isNaN('1'));//false
+        console.log(isNaN('1'+1));//false
+        console.log(isNaN('o'));//true
+        console.log(Number('1'+1));//11
+        //结论：
+        //isNaN会对数字字符串进行Number转换成number类型的，
+        //然后进行typeof判断其值如果是number类型的则返回false
+    </script>
+</body>
+
+</html>

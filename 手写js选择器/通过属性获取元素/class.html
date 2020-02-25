@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <p class="el-p" id="p-id" sunyu="xiaoyu">手写一个原生JS获取class类 、tagName、id和自定义属性的方法获取元素</p>
+
+    <script>
+        /*
+         通过class类 、tagName、id和自定义属性的方法获取元素的思想都是通过DOM的API
+         来判断当前节点的某个属性值是否等于查询的值，如果等于就返回该节点。
+         首先不管什么元素使用通配符把所有元素都给获取，然后在遍历每个节点判断每一个节点是否存在某个属性
+         并且这个属性的值是否与当前查询的值相等，如果等于就返回push该节点到一个数组里，最后把数组作为
+         函数的返回值返回出去。
+        
+        */
+
+        // 通过查询元素className的值来获取该元素  
+        function $class(domclass) {
+            var p = document.getElementsByTagName("*");
+            var aResult = [];
+            for (var i = 0; i < p.length; i++) {
+                if (p[i].className == domclass) {
+                    //console.log(p[i]);
+                    aResult.push(p[i]);
+                    return aResult;
+                }
+            }
+        };
+        //$class('el-p');
+        console.log($class('el-p'));
+
+        // 通过查询元素tagName的值来获取该元素  
+        function $tagName(tagname) {//tagName输出的都是大写的，所以传参的时候要写大写的标签名
+            var p = document.getElementsByTagName("*");
+            var aResult = [];
+            for (var i = 0; i < p.length; i++) {
+                //console.log(p[i].tagName);// 输出的都是大写的标签名
+                if (p[i].tagName == tagname) {
+                    //console.log(p[i]);
+                    aResult.push(p[i]);
+                    return aResult;
+                }
+            }
+        };
+        console.log($tagName('P'));
+
+        // 通过查询元素id的值来获取该元素
+        function $tagId(tagId) {//tagName输出的都是大写的，所以传参的时候要写大写的标签名
+            var p = document.getElementsByTagName("*");
+            var aResult = [];
+            for (var i = 0; i < p.length; i++) {
+                //console.log(p[i].tagName);// 输出的都是大写的标签名
+                if (p[i].id == tagId) {
+                    //console.log(p[i]);
+                    aResult.push(p[i]);
+                    return aResult;
+                }
+            }
+        };
+        console.log($tagId('p-id'));
+
+        // 通过查询元素getAttribute的值来获取该元素
+        function $byAttr(attr) {
+            var p = document.getElementsByTagName("*");
+            var aResult = [];
+            // console.log(p);
+            for (var i = 0; i < p.length; i++) {
+                // console.log(p[i].getAttribute("sunyu"));
+                if (p[i].getAttribute("sunyu") == attr) {
+                    // console.log(p[i]);
+                    aResult.push(p[i]);
+                    return aResult;
+                }
+            }
+        }
+        // $byAttr('xiaoyu');
+        console.log($byAttr('xiaoyu'));
+
+
+
+
+
+    </script>
+</body>
+
+</html>

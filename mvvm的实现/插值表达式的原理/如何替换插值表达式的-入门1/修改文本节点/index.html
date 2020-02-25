@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        {}
+    </div>
+    <script>
+     var el = document.getElementById('app');
+     var childNodes = el.childNodes;
+     var text = childNodes[0];
+     console.log(childNodes);//NodeList [text]
+     console.log(text);//{}
+     console.log(text.textContent);//{}
+     // 为什么 {}是一个文本值可以{}.textContent;
+     // 来验证 console.log("{}".textContent);//undefined；
+     // console.log("{}".textContent);却输出undefined；
+     // 之所以返回undefined是因为自定义的"{}"并没有明确指定来自哪个节点；
+     text.textContent = '北京';
+     
+    </script>
+</body>
+</html>

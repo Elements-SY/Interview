@@ -1,0 +1,7 @@
+﻿box-sizing border-box;翻译过来就是计算盒子大小
+
+box-sizing: content-box;默认值，盒子的大小计算border和padding，假设盒子为100，padding左右为20，那么该盒子就是140；
+
+如果使用box-sizing border-box;那么则不计算盒子的padding或者border，盒子的大小包括border和padding。内容去则为60；
+
+

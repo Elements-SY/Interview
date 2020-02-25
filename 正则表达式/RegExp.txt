@@ -1,0 +1,18 @@
+﻿RegExp.$1...$9属性用于返回正则表达式模式中某个子表达式匹配的文本。
+
+当正则匹配为true的时候用RegExp.$1返回正则表达式模式中某个子表达式匹配的文本。
+
+var str = "X98Y87Z65";
+        // 三个数字部分加了小括号，表示子表达式
+        var reg = /^X(\d+)Y(\d+)Z(\d+)$/;
+        reg.test(str); // 此处使用exec()等其他正则表达式的匹配方法也可，下同
+        console.log(RegExp.$1); // 98
+        console.log(RegExp.$2); // 87
+        console.log(RegExp.$3); // 65
+
+var r= /^(\d{4})-(\d{1,2})-(\d{1,2})$/;
+        var date = '1985-10-15';
+        r.test(date);
+        console.log(RegExp.$1); // 98
+        console.log(RegExp.$2); // 87
+        console.log(RegExp.$3); // 65

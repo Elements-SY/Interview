@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var baseUrl = 'https://cnodejs.org/api/v1';
+        function Ajax(methods, url, prams) {
+            return new Promise((resolve, reject) => {
+                var xhr;
+                if (window.XMLHttpRequest) {//会提示undefined
+                    xhr = new XMLHttpRequest();
+                } else {
+                    xhr = new ActiveXObject("Microsoft.XMLHTTP");
+                }
+                console.log(xhr);
+                xhr.open("GET", `${baseUrl + url + prams}`);
+                xhr.send(null);
+                xhr.onreadystatechange = () => {
+                    if (xhr.readyState == 4 && xhr.status == 200) {
+                        try {
+                            resolve('success');
+                            console.log(JSON.parse(xhr.responseText));
+                        }catch (e) {
+                            reject('错啦');
+                            console.log(xhr.status);
+                        }      
+                    }else {}
+                }
+            })
+        }
+        Ajax('get', '/topics?', 'page=1').then((res) => {
+            console.log(res);
+        }, (error) => {
+            console.log(error);
+        })
+
+
+    </script>
+</body>
+
+</html>

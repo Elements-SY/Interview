@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>防抖与节流</title>
+    <style>
+        body {
+            height: 3000px;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        //防抖 在连续事件完全触发完成之后等待时间过去之后才会执行，
+        //也就是说必须等待到达所定的时间才会执行仅仅只会调用一次
+        function debounce(fn, wait) {
+            var timeout = null;
+            return function () {
+                if (timeout !== null) {
+                    clearTimeout(timeout);
+                }
+                console.log(timeout);
+                timeout = setTimeout(fn, wait);
+            }
+        }
+        // 处理函数
+        function handler() {
+            console.log(Math.random());
+        }
+        // 滚动事件
+        window.addEventListener('scroll', debounce(handler, 1000));
+        //节流 在一定的时间内会执行一次
+        function throttle(func, wait) {
+            let lastTime = null
+            // 为了避免每次调用lastTime都被清空，
+            //利用js的闭包返回一个function确保不生命全局变量也可以
+            return function () {
+                let now = new Date()
+                // 如果上次执行的时间和这次触发的时间大于一个执行周期，则执行
+                if (now - lastTime - wait > 0) {
+                    func()
+                    lastTime = now
+                }
+            }
+        };
+        function handle() {
+            console.log(Math.random());
+        }
+        window.addEventListener('scroll', throttle(handle, 1000));
+        var obj1 = undefined;
+        var obj2 = null;
+        console.log(obj1 instanceof Object);//false
+        console.log(obj2 instanceof Object);//false
+        // 因为它们都是值类型的并且没有原型
+
+    </script>
+</body>
+
+</html>

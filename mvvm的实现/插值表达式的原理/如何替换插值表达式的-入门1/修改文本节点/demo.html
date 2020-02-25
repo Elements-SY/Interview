@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <h1>{{ a }}</h1>
+        <p></p>
+        <main>
+            <div>
+                <p>{{text}}</p>
+            </div>
+        </main>
+    </div>
+    <script>
+        var data = {
+            a: 'hello',
+            text: '西安'
+        }
+        var el = document.getElementById('app');
+        var childNodes = el.childNodes;
+        var reg = /\{\{((?:.|\n)+?)\}\}/;
+        var text;
+        //console.log(childNodes);// [text, p, text]
+        [].slice.call(childNodes).forEach((node, index, item) => {
+            // 遍历元素节点 & 文本节点以及属性节点等
+            // 处理元素节点和文本节点
+            // console.log(node,index,item);
+            text = node.textContent;
+            //如果节点类型等于3并且内容是一个插值表达式，那么就接着对插值表达式里的变量做匹配
+            // if (node.nodeType === 3 && reg.test(text)) {
+            if (reg.test(text)) {
+                console.log(node);
+                // console.log(node, index, item);
+                // node.textContent = `文本节点${index}`
+                //console.log('data[RegExp.$1.trim()]');
+                node.textContent = data[RegExp.$1.trim()];
+            }
+        });
+    </script>
+</body>
+
+</html>

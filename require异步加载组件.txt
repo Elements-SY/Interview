@@ -1,0 +1,10 @@
+﻿require异步加载组件：
+const eventCatch = resolve => require(['@/pages/eventCatch'],resolve);
+// 第一个形参是传给require方法的形参
+
+转es5
+
+var eventCatch = function eventCatch(resolve) {
+  return require(['@/pages/eventCatch'], resolve);
+};
+

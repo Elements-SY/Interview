@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="attr" index="div-attr" data-attr="div"></div>
+    <script>
+    var el = document.getElementById('attr');
+    console.log(el.getAttribute('id'));//attr
+    console.log(el.getAttribute('index'));//div-attr
+    console.log(el.getAttribute('data-attr'));//div
+    //获取属性值
+    console.log(el.dataset.attr);//div
+    el.dataset.attr = 'aaa';
+    console.log(el.dataset.attr);
+    </script>
+</body>
+</html>

@@ -1,0 +1,3 @@
+﻿vue中路由的重定向redirect，比如原来是跳转到根目录的，
+
+但是替换改变了原来跳转的目标而跳转到home页{ path: '/', redirect: '/home' },
