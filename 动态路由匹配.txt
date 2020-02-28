@@ -1,12 +1,12 @@
-��̬·��ƥ�䣺���ڸ�·�ɶ����path·����β��ð�ŵ���ʽ����һ����������{ path: '/user/:id', component: User }��
+﻿动态路由匹配：是在该路由对象的path路径结尾以冒号的形式跟上一个参数，（{ path: '/user/:id', component: User }）
 
-�����ת���·�ɣ���Ҫ���ϸ�·�ɶ����path·����βð�Ŷ�Ӧ�Ĳ�����
+如果跳转向该路由，需要跟上该路由对象的path路径结尾冒号对应的参数，
 
-���Ҵ�һ��ֵ���ɡ�<router-link :to="{name:'books',params:{yy:456}}"><li>�鼮</li></router-link>
+并且传一个值即可。<router-link :to="{name:'books',params:{yy:456}}"><li>书籍</li></router-link>
 
-������������һ�����⣬���Ǹ��ø����ʱ��������������ڹ��Ӳ����ٱ����ã�
+但是这样会有一个问题，就是复用该组件时，组件的生命周期钩子不会再被调用，
 
-��ʱ����ͨ��watch����·�ɶ���ı仯���Ӷ�������Ҫ����������ķ������ɡ� ���£�
+这时可以通过watch监听路由对象的变化，从而根据需要来调用所需的方法即可。 如下：
 
 
 watch: {
