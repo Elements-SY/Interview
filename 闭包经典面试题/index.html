@@ -10,46 +10,73 @@
 
 <body>
     <script>
+        for (let i = 0; i < 5; i++) {
+            var timer = setTimeout(() => { // let不存在作用域
+                console.log(i); // 0 1 2 3 4 
+                console.log(`定时器返回值:${timer}`);
+            }, 100)
+            console.log(`定时器返回值:${timer}`);
+        }
+        // for (var i = 0; i < 5; i++) {
+        //     var timer = setTimeout(() => { // var存在作用域,在循环的条件满足结束之后才会走定时器，
+        //         console.log(i); // 5 5 5 5 5
+        //         console.log(`定时器返回值:${timer}`);
+        //     }, 100)
+        // }
+
         // for (let i = 0; i < 5; i++) {
-        //     setTimeout(() => {
-        //         console.log(i);// 0 1 2 3 4 
+        //     setTimeout(function () {
+        //         console.log(i); // 0 1 2 3 4 
         //     }, 100)
         // }
         // for (var i = 0; i < 5; i++) {
-        //     setTimeout(() => {
+        //     setTimeout(function () {
         //         console.log(i); // 5 5 5 5 5
         //     }, 100)
         // }
 
+        // for (var i = 0; i < 5; i++) {
+        //     (function () {
+        //         console.log(i); // 0 1 2 3 4 
+        //     })()
+        // }
+
         // for (let i = 0; i < 5; i++) {
-        //     setTimeout(function () {
-        //         console.log(i);// 0 1 2 3 4 
-        //     }, 100)
+        //     (function () {
+        //         console.log(i); // 0 1 2 3 4 
+        //     })()
+        // }
+
+        // for (var i = 0; i < 5; i++) {
+        //     (function (i) {
+        //         console.log(i); // 0 1 2 3 4 
+        //     })(i)
         // }
         // for (var i = 0; i < 5; i++) {
-        //     setTimeout(function () {
-        //         console.log(i);// 5 5 5 5 5
-        //     }, 100)
+        //     setTimeout(() => {
+        //         console.log(i) // 5 5 5 5 5
+        //     }, (i * 1000))
         // }
 
-        for (var i = 0; i < 5; i++) {
-           (function () {
-                console.log(i);// 0 1 2 3 4 
-           })()
-        }
+        // for (var i = 0; i < 5; i++) {
+        //     setTimeout((function (i) {
+        //         return function () {
+        //             console.log(i); // 0 1 2 3 4
+        //         }
+        //     })(i), 1000);
+        // }
 
-        for (let i = 0; i < 5; i++) {
-            (function () {
-                console.log(i);// 0 1 2 3 4 
-            })()
-        }
-
-        for (var i = 0; i < 5; i++) {
-            (function (i) {
-                console.log(i);// 0 1 2 3 4 
-            })(i)
-        }
-
+        // for (var i = 0; i < 5; i++) {
+        //     setTimeout((function (i) {
+        //         // 前后两个都属于自执行函数，前者的自执行函数是做业务处理的函数，
+        //         return function () {
+        //             console.log(i); // 0 3 1 4 2
+        //         }
+        //     })(i), (function (i) {
+        //         // 后者的自执行函数是做定时器的时间处理函数
+        //         return i * 1000
+        //     })(i));
+        // }
     </script>
 </body>
 

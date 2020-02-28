@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <h3>请使用编辑器查看代码</h3>
+  <script>
+
+    // console.log(_b); // undefined
+    // var _b = 2;
+    /*
+        function foo(a) {
+          console.log(a + b); // 3
+        }
+        var b = 2;
+        foo(1);
+        // js中var变量提升至顶部;如果变量名与函数名不同名，那么变量提升优先级高于非同名函数;
+        // 不论写在哪最终变量会提升至顶部, 还原提升之后的代码如下:
+        var b = 2;
+        function foo(a) {
+          console.log(a + b); // 3
+        }
+        foo(1);
+    */
+    // function _foo(a) {
+    //   console.log(_b); // undefined
+    //   var _b = 2;
+    // }
+    // _foo();
+
+    // var number = 1;
+    // function sum() {
+    //   console.log(number); // undefined
+    //   var number = 2;
+    //   console.log(number); // 2
+    // }
+    // sum()
+
+    // function _foo(a) {
+    //   console.log(a + _b); // Uncaught ReferenceError: _b is not defined
+    //   var _b = 2;
+    // }
+    // _foo(1);
+
+    /*
+      c = 3;
+      console.log(c)
+      // 未声明变量，直接定义。其实不是在预解析的过程中声明了该变量而是把该定义的直接添加到全局window上了，
+      // 还原如下:
+      // window.c = 3;
+      // 在浏览器控制台可以console.log(this)或者console.log(window)查看全局window对象是否有该"c"属性
+    */
+
+    // test(1);
+    // var test = 0;
+    // function test(a) {
+    //   var num = 1;
+    //   console.log(num + a); // 2
+    //   num = 2;
+    // }
+
+
+    // var _test = 0;
+    // function _test(a) {
+    //   var num = 1;
+    //   console.log(num + a); // Uncaught TypeError: _test is not a function
+    //   num = 2;
+    // }
+    // _test(1);
+
+
+  </script>
+</body>
+
+</html>
