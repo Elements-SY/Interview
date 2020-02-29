@@ -8,34 +8,8 @@
 </head>
 
 <body>
-  <script>
-    console.log(b);    //undefined 未定义
-    var b;
-    // 已声明只是没有定义该变量而已，与下述let 不同的是a这个变量就不存在，因为let 与var 变量声明不同的是不会提升作用域，并且有块级作用域，不可在相同作用域内重复声明同一个变量。
-    console.log(a);     //a is not defined
-    let a;
-
-    let c;
-    console.log(c);
-    for (let i = 0; i < 3; i++) {
-      let i = 'ddd';
-      console.log(i);
-    }
-    //ddd
-    //ddd
-    //ddd
-    {
-      var a = 1;
-      let b = 2;
-      console.log('区块内a=', a); // Uncaught SyntaxError: Identifier 'a' has already been declared
-      // let变量不能重复声明,如果重复了则在32行报错，不在往下执行代码。其原因因为js是同步机制,
-      // 除了setTimeout和promise以及Ajax除外;
-      // let不允许在相同作用域内，重复声明同一个变量。
-      console.log('区块内b=', b); // 区块内b= 2
-    }
-    console.log('区块外a=', a); // 区块外a= 1
-    console.log('区块外b=', b); // 区块外b= undefined
-  </script>
+  <h3 style="text-align: center;">请使用编辑器查看代码</h3>
+  <script src="./index.js"></script>
 </body>
 
 </html>

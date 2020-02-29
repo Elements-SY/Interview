@@ -1,34 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 </head>
+
 <body>
-    
+    <h3 style="text-align: center;">请使用编辑器查看代码</h3>
     <input type="text" id="el">
     <h2></h2>
     <script>
-     var el = document.getElementById('el');
-     var els = document.getElementsByTagName('h2')[0];
-     var obj = {
-         name:''
-     }  
-     el.onkeyup = function(){
-         //console.log(this.value);
-        //  els.innerText = this.value;
-         obj.name = this.value;
-     }
+        var el = document.getElementById('el');
+        var els = document.getElementsByTagName('h2')[0];
+        var obj = {
+            name: ''
+        }
+        el.onkeyup = function () {
+            //console.log(this.value);
+            //  els.innerText = this.value;
+            obj.name = this.value;
+        }
 
-     Object.defineProperty(obj,'name',{
-         set(val){
-             console.log(val);
-             els.innerText = val;
-         },
-         get(){}
-     });
+        Object.defineProperty(obj, 'name', {
+            set(val) {
+                console.log(val);
+                els.innerText = val;
+            },
+            get() { }
+        });
     </script>
 </body>
+
 </html>
