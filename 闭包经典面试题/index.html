@@ -12,7 +12,7 @@
     <h3 style="text-align: center;">请使用编辑器查看代码</h3>
     <script>
         for (let i = 0; i < 5; i++) {
-            var timer = setTimeout(() => { // let不存在作用域
+            var timer = setTimeout(() => { // let不存在变量提升作用域
                 console.log(i); // 0 1 2 3 4 
                 console.log(`定时器返回值:${timer}`);
             }, 100)

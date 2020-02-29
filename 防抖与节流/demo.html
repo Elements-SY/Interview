@@ -16,6 +16,7 @@
 <body>
     <h3 style="text-align: center;">请使用编辑器查看代码</h3>
     <script>
+
         //防抖 在连续事件完全触发完成之后等待时间过去之后才会执行，
         //也就是说必须等待到达所定的时间才会执行仅仅只会调用一次
         function debounce(fn, wait) {
@@ -34,6 +35,7 @@
         }
         // 滚动事件
         window.addEventListener('scroll', debounce(handler, 1000));
+
         //节流 在一定的时间内会执行一次
         function throttle(func, wait) {
             let lastTime = null
@@ -52,11 +54,6 @@
             console.log(Math.random());
         }
         window.addEventListener('scroll', throttle(handle, 1000));
-        var obj1 = undefined;
-        var obj2 = null;
-        console.log(obj1 instanceof Object);//false
-        console.log(obj2 instanceof Object);//false
-        // 因为它们都是值类型的并且没有原型
 
     </script>
 </body>
