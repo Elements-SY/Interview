@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    var arr = ['s', 'l', 's', 'e', 'd', 'p'];
+    // for循环 数组去重
+    // var newArr = [];
+    // for (var i = 0; i < arr.length; i++) {
+    //   if (newArr.indexOf(arr[i]) == -1) {
+    //     newArr.push(arr[i])
+    //   }
+    // }
+    // console.log(newArr)
+
+    // filter 数组去重
+    // val：打印原数组的值
+    // index：打印原数组下标
+    // item：打印原数组
+    // console.log(val, index, item)
+    // return arr.indexOf(val) === index
+    // const result = arr.filter((val, index, item) => arr.indexOf(val) === index);
+    // console.log(result)
+
+    // Set 数组去重 
+    // Set和Map类似，也是一组key的集合，但不存储value。由于key不能重复，所以，在Set中，没有重复的key
+    //Set和Map都可以用来生成新的 Map接收的参数都是一个数组，并且把数组转换成一个json对象
+    // 不同的是Set转换成的是一个没有键的key值,详情参考“es6 map与set”文件夹中对Map和Set的了解
+    // Array.from()方法就是将一个类数组对象或者可遍历对象转换成一个真正的数组
+    console.log(new Set(arr)) // {"s", "l", "e", "d", "p"}
+    console.log(Array.from(new Set(arr))) // ["s", "l", "e", "d", "p"]
+  </script>
+</body>
+
+</html>
