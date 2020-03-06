@@ -3,9 +3,9 @@ devDependencies保存的依赖是只用于开发环境，不用于生产环境�
 
 dependencies保存的依赖用于生产环境。
 
-npm i module_name  -S  = >  npm install module_name --save    写入到 dependencies 对象（生产环境）
+npm i module_name -S = > npm install module_name --save 写入到 dependencies 对象（生产环境）
 
-npm i module_name  -D  => npm install module_name --save-dev   写入到 devDependencies 对象（开发环境）
+npm i module_name -D => npm install module_name --save-dev 写入到 devDependencies 对象（开发环境）
 
 npm i module_name  -g  全局安装
 

@@ -1,1 +1,3 @@
-﻿render 函数 跟 template 一样都是创建 html 模板的，它的返回值是一个createElement也就是我们要渲染的节点
+﻿render 函数 跟 template 一样都是创建 html 模板的，
+
+它的返回值是一个createElement也就是我们要渲染的节点
