@@ -1,0 +1,50 @@
+/* current code	compatible all browser and version */
+/* div {
+  width: 200px;
+  height: 200px;
+  background: #b7b4b4;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-left: -100px;
+  margin-top: -100px;
+} */
+
+/* current code IE >= 8 version */
+/* div {
+  width: 200px;
+  height: 200px;
+  background: #b7b4b4;
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
+} */
+
+/* current code IE >= 9 version */
+/* div {
+  width: 200px;
+  height: 200px;
+  background: #b7b4b4;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+} */
+
+/* current code IE >= 10 version */
+body {
+  height: 400px;
+  border: 1px solid #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+div {
+  width: 200px;
+  height: 200px;
+  background: #b7b4b4;
+}
