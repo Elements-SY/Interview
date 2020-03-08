@@ -36,8 +36,8 @@ let obj = {
 // // 从上述我们不难发现我们可以看出es6解构赋值拷贝与Object.assign()拷贝的只是属性值，
 // // 假如源对象的属性值是一个指向对象的引用，它也只拷贝那个引用值。
 
-// 深拷贝概念: 创建新的内存地址而不是拷贝原对象的引用地址
-// JSON.stringfy()拷贝
+// // 深拷贝概念: 创建新的内存地址而不是拷贝原对象的引用地址
+// // JSON.stringfy()拷贝
 // var obj4 = JSON.parse(JSON.stringify(obj));
 // obj.age = 2
 // obj.personl.name = '李四'
