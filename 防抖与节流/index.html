@@ -10,26 +10,12 @@
 
 <body style="height: 3000px;">
     <h3 style="text-align: center;">请使用编辑器查看代码</h3>
-    <!-- <script src="./throttle.js"></script> -->
+    <input id="input" type="text" value="" placeholder="请输入">
+    <script src="./throttle.js"></script>
+    <!-- <script src="./debounce.js"></script> -->
     <script>
-        // 防抖 在连续事件完全触发完成之后等待时间过去之后才会执行，
-        // 也就是说必须等待到达所定的时间才会执行仅仅只会调用一次
-        function debounce(fn, wait) {
-            var timeout = null;
-            return function () {
-                if (timeout !== null) {
-                    clearTimeout(timeout);
-                }
-                console.log(timeout);
-                timeout = setTimeout(fn, wait);
-            }
-        }
-        // 处理函数
-        function handler() {
-            console.log(Math.random());
-        }
-        // 滚动事件
-        window.addEventListener('scroll', debounce(handler, 1000));
+
+
     </script>
 </body>
 

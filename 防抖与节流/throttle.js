@@ -1,3 +1,7 @@
+function input (value) {
+  console.log(`输入的内容${value}`)
+}
+const ipt = document.getElementById('input')
 // 节流 在一定的时间内会执行一次
 function throttle (func, wait) {
   let lastTime = null
@@ -12,4 +16,7 @@ function throttle (func, wait) {
     }
   }
 };
-
+const throttleInput = throttle(input, 500)
+ipt.addEventListener("keyup", function (e) {
+  throttleInput(e.target.value)
+})
