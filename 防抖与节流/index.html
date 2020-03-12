@@ -14,19 +14,70 @@
     <script src="./throttle.js"></script>
     <!-- <script src="./debounce.js"></script> -->
     <script>
+        // 需求如下:
+        /*
+         现在有一个搜索需求，当用户输入完毕之后再去做请求搜索查询，在用户输入的过程中不得造成没必要的频繁请求，
+         当用户填写表单触发键盘事件或者失焦事件，我们才能做用户输入之后调用键盘事件或者失焦事件才能做业务处理，
+         但是用户每次输入都会调用键盘事件或者失焦事件，这时用户并没有输入完毕呢。
+         为了解决该问题我们该怎么做呢?
 
-    /*
-     假设触发某一个事件，在该事件中设置一个定时器，
-
- 到定时器一定的时间再去做处理，如果定时器还没有
-
- 到达所定的时间，那么又触发该事件，这时就清除定时器再重新开一个定时器
-
- 然后再使用定时器到达所定的时间去做处理。
-
- 前提要给定时器作为一个变量存，使清除和开启定时器都对一个变量做处理
-    
-    */   
+         假设用户输入触发键盘事件或者失焦事件,每次触发该事件都会频繁的做处理，
+         但是，这时用户并没有输入完毕呢。
+         思考一：
+         在用户输入触发键盘事件或者失焦事件中设置一个定时器，
+         到定时器一定的时间再去做处理，如果定时器还没有
+         到达所定的时间，那么又触发该事件，这时就清除定时器再重新开一个定时器
+         然后再使用定时器到达所定的时间去做处理。这种我们可以称之为抖动事件，
+         那么如何防抖呢?
+         前提要给定时器作为一个变量存，使清除和开启定时器都对一个变量做处理
+        */
+        /*
+            假设用户输入触发键盘事件或者失焦事件,但是我们并不在该事件中直接做搜索请求，
+            而是弄一个定时器，当到达所指定的时间再去做搜索，
+            假设触发某一个事件，在该事件中设置一个定时器，
+            代码如下：
+            var el = document.getElementById('input')
+            el.addEventListener("keyup", function (e) {
+               window.setTimeout(function () {
+                  console.log(e)
+               }, 1500)
+            })
+            但是这样每次触发键盘事件会开启多个定时器，
+            为了避免该问题我们全局定义一个变量来保存该定时器，
+            在开启定时器之前做定时器清除clearTimeout(timer)
+            保存该定时器的变量或者说清除定时器的引用地址。
+            代码如下：
+            var el = document.getElementById('input')
+            var timer = null;
+            el.addEventListener("keyup", function (e) {
+                clearTimeout(timer)
+                timer = setTimeout(function () {
+                    console.log(e.target.value)
+                }, 1500)
+            })
+            // 代码优化
+            var el = document.getElementById('input')
+            // 防抖事件
+            function debounce (fn) {
+            var timer = null;
+            return function (args) { // args防抖函数的回调函数的传参
+                if (timer !== null) {
+                clearTimeout(timer);
+                }
+                timer = setTimeout(function () {
+                fn(args)
+                }, 1500);
+            }
+            }
+            // 防抖函数的回调函数
+            function input (value) {
+            console.log(`${value}`)
+            }
+            var debounceInput = debounce(input)
+            el.addEventListener("keyup", function (e) {
+            debounceInput(e.target.value)
+            })
+        */
 
     </script>
 </body>
