@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    console.log('A')
+
+    function easyPromise(fn) {
+      var that = this;
+      this.then = function (cb) {
+        that.cb = cb;
+      }
+      this.resolve = function (data) {
+        that.cb(data);
+      }
+      fn(this.resolve); // 
+    }
+    new easyPromise((resolve) => { // 这个箭头函数是传给easyPromise构造函数里的fn来调用的。
+      console.log('B')
+      setTimeout(() => {
+        resolve("延迟执行");
+      }, 0);
+    }).then((data) => {
+      console.log(data);
+    })
+    console.log('C')
+    // A B C 延迟执行
+  </script>
+</body>
+
+</html>

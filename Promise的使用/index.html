@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Promise的使用</title>
 </head>
 
 <body>
@@ -13,16 +13,23 @@
     <script>
         var flag = false;
         var promise = new Promise((resolve, reject) => {
-            if (flag) {
-                resolve('success');
-            } else {
-                reject('错啦');
-            }
+            flag ? resolve(1) : reject('错啦');
         }).then((res) => {
             console.log(res);
+            return res + 1;
         }, (error) => {
             console.log(error);
-        })    
+        })
+
+        // Promise链式编程
+        promise.then(res => {
+            console.log(res);
+            return res + 1;
+        }).then(res => {
+            console.log(res);
+            return res + 1;
+        })
+
     </script>
 </body>
 
