@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>探索虚拟DOM</title>
+</head>
+
+<body>
+  <script src="./vnode.js"></script>
+  <script src="./patch.js"></script>
+  <script>
+    var ul = new VNode('ul', { class: 'ul' }, [
+      new VNode('p', { class: 'p' }, [], '我是原来的DOM'),
+      new VNode('a', { href: '#' }, [], '我也是原来的DOM等一会我就变了'),
+      new VNode('input', { type: 'text' }, []),
+    ])
+
+    var ul2 = new VNode('ul', { class: 'ul' }, [
+      new VNode('p', { class: 'p' }, [], '我是原来的DOM'),
+      new VNode('a', { href: '#' }, [], '我也是原来的DOM等一会我就变了'),
+      new VNode('input', { type: 'text' }, []),
+    ])
+
+    var ul2 = new VNode('ul', { class: 'ul' }, [
+      new VNode('p', { class: 'p' }, [], '我是原来的DOM'),
+      new VNode('a', { href: 'https://www.baidu.com/' }, [], '原来的a标签文本被改变'),
+      new VNode('input', { type: 'text' }, []),
+      new VNode('input', { type: 'file' }, []),
+    ])
+    document.body.appendChild(ul.render())
+    setTimeout(() => {
+      // console.log('vnode change')
+      patch(ul, ul2)
+    }, 2000)  
+  </script>
+</body>
+
+
+</html>

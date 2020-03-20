@@ -1,13 +1,19 @@
 // Promise链式编程
 function Easypromise (fn1) {
   this.value = undefined;
+  this.then = (resolve) => {
+    // 非链式编程
+    resolve(this.value)
+    // // 链式编程
+    // return new Easypromise((fn2) => {
+    //   this.value = resolve(this.value);
+    //   fn2(this.value)
+    // })
+  }
   fn1(res => {
     this.value = res
   });
-  Easypromise.prototype.then = (resolve) => {
-    // 非链式编程
-    resolve(this.value)
-  }
+
 }
 var easyPromise = new Easypromise((resolve) => {
   resolve(1)

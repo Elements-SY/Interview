@@ -1,0 +1,52 @@
+﻿vue-loader是解析提取 .vue 文件中的script、style、HTML 模版template，
+
+然后css交给css-loader处理，js交给babel处理，style交给style-loader处理，
+
+vue文件中template交给vue-template-compiler模板编译器处理。
+
+vue-template-compiler模板编译器把vue文件中的template转化成js对象，
+
+用js对象来描述DOM结构(虚拟DOM)
+
+
+<a class="demo" style="color: red" href="#">
+    generator VNode
+</a>
+
+转换成如下代码
+
+{
+  tag: 'a',
+  data: {
+  calss: 'demo',
+  attrs: {
+     href: '#'
+  },
+  style: {
+     color: 'red'
+  }
+  },
+  children: ['generator VNode']
+}
+
+
+最后交给vue.js中的render函数做处理，解析成真实的DOM。
+
+那么问题来了，是怎么把这个虚拟DOM转换成真实的DOM的呢?
+
+首先通过Render函数对虚拟DOM渲染成真实的DOM,
+
+在对比虚拟DOM之前首先会把上次的虚拟DOM保存起来，
+
+然后接着把新的虚拟DOM和之前旧的DOM做深层遍历对比，判断两则
+
+的虚拟DOM树结构是否相等,比如属性和值之类的。
+
+如果不相等然后就替换旧的节点，再render一次
+
+
+具体请看vdom文件里的思路
+
+
+
+

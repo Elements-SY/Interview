@@ -1,9 +1,11 @@
-function Easypromise (fn1) {
-  this.value = undefined;
-  fn1(res => {
-    this.value = res
-  });
-  Easypromise.prototype.then = (resolve) => {
+class Easypromise {
+  constructor(fn1) {
+    this.value = undefined;
+    fn1(res => {
+      this.value = res
+    })
+  }
+  then (resolve) {
     // // 非链式编程
     // resolve(this.value)
 
@@ -12,7 +14,6 @@ function Easypromise (fn1) {
       this.value = resolve(this.value);
       fn2(this.value)
     })
-
   }
 }
 var easyPromise = new Easypromise((resolve) => {

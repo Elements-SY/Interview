@@ -2,11 +2,12 @@
 <html lang="en">
 
 <head>
-	<meta charset="UTF-8">
-	<title>vue-demo</title>
+    <meta charset="UTF-8">
+    <title>vue-demo</title>
 </head>
+
 <body>
-	<div id="test">
+    <div id="test">
         <h2></h2>
         <span>wed</span>
         <p>{{ a }}</p>
@@ -15,16 +16,15 @@
                 <p>{{text}}</p>
             </div>
         </main>
-	</div>
-    <script src="./a.js"></script>
-	<!-- <script src="./compile.js"></script> -->
-	<script>
-		var data = {
+    </div>
+    <script src="./compile.js"></script>
+    <script>
+        var data = {
             a: 'hello',
             text: '西安'
-		}
-		new Compile('#test', data)
-	</script>
+        }
+        new Compile('#test', data)
+    </script>
 </body>
 
 </html>
