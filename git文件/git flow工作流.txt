@@ -1,0 +1,66 @@
+﻿git flow工作流
+git checkout -b xxx : 创建新的分支并且切换到该分支；
+
+git checkout xxx : 切换远程分；
+
+git merge xxx : 把当前分支的内容合并到xxx分支上，这时即可直接git push origin xxx，不需要再
+
+git add、git commmit -m'xxx'了，除非当前本地没有git add、git commmit -m'xxx'生成一个版本； 
+当git merge xxx合并到当前本地新的分支上之后。还需要git push origin xxx远程推送到这个新的分
+
+支，当git push origin xxx时，就会创建一个远程的xxx分支，并且把本地的xxx分支的内容推送到远程
+
+xxx分支上；
+
+git branch : 查看本地分支；
+
+git branch -r : 查看远程分支；
+
+git branch -a : 查看本地 & 远程分支；
+
+git branch -d dev: 删除本地分支，如果想要删除本地分支除了删除当前的分支需要切换到另一个分支
+
+才能做删除，删除远程分支则没必要；
+
+git push origin -d dev: 删除远程分支；
+
+git add . : 提交新文件(new)和被修改(modified)文件，不包括被删除(deleted)文件；
+
+git add -A : 提交所有变化；
+
+git add -u : 提交被修改(modified)和被删除(deleted)文件，不包括新文件(new)；
+
+git commit -m 'xxx' : 表示当git add把资源添加到暂存区之后对该暂存区资源的描述的内容；
+
+git reset --soft HEAD~ : 回退到某个版本，只回退了commit的信息，不会恢复到index file一级。如
+
+果还要提交，直接commit即可；
+
+
+git reset --hard HEAD~ : 彻底回退到某个版本，本地的源码也会变为上一个版本的内容，撤销的
+
+commit中所包含的更改被冲掉；
+
+git reset --hard HEAD~ : 对于回退到的版本来说，会保留当前版本工作区和缓存区的文件以及版本之
+
+间新添加的文件(4.txt)在工作区中，当前版本工作区的文件也会添加到回退到版本的工作区中；
+
+git fetch: 是将远程主机的最新内容拉到本地，用户在检查了以后决定是否合并到工作本机分支中；
+
+git pull: 则是将远程主机的最新内容拉下来后直接合并；
+
+git pull 的过程可以理解为:
+git pull origin xxx分支
+git merge FETCH_HEAD  //将拉取下来的最新内容合并到当前所在的分支中；
+
+git fetch 的过程可以理解为:
+git fetch origin master //从远程主机的master分支拉取最新内容； 
+git merge FETCH_HEAD    //将拉取下来的最新内容合并到当前所在的分支中；
+
+为什么本地init的git 仓库不管是推送还是拉去都要带一个origin xxx分支？
+因为你这个仓库并不是来自远程创建的，而是你自己本地init的，当你把本地仓库的代码都推送到远程仓库之后，这时删除本地的仓库，从github上再拉取一份，这时不管是推送还是拉取都不用在带上origin xxx分支了。
+
+mkdir xxx : 创建文件夹
+touch xxx.html xxx.txt : 创建文件
+rm -rf : 删除文件
+echo "# wenjianjia" >> README.md : 创建文件并且向该文件写入信息 ">>"该符号是重定向符号
