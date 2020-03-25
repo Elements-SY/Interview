@@ -1,0 +1,20 @@
+回调函数是指调用一个函数时，当这个函数执行的时候会接着调用另一个函数，
+
+可以利用回调函数把参数进行传递下去给另一个函数。
+
+调用时传参，执行时接收参数，并在函数体内做参数处理即可。
+
+
+代码如下：
+
+function resolve (res, fn) {
+  fn(res)
+}
+resolve(1, function (res) {
+  console.log(res)
+  sum(res)
+})
+function sum (res) {
+  console.log(res)
+}
+

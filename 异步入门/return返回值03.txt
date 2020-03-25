@@ -1,0 +1,86 @@
+﻿return返回值,return是干嘛使用的？
+
+return 其实就是做终止线程上某个任务对象的进程的。
+
+代码如下:
+
+var num = 1;
+return
+console.log(num)
+
+if (num > 0) {
+  num = 2;
+} else {
+  return
+}
+console.log(num)
+
+我们不难发现以上都没有执行，都被终止了任务进程。
+
+那么return用在哪里呢？我们看看一个没使用function函数配合return使用，
+
+一个使用function函数配合return使用。
+
+没使用function函数配合return使用代码如下：
+
+var num = 1;
+
+if (num > 0) {
+  num = 2;
+  console.log(num)
+} else {
+  return num = 4;
+}
+使用function函数配合return使用代码如下：
+
+var num = 1;
+function fn () {
+  if (num > 0) {
+    num = 2;
+  } else {
+    return;
+  }
+  console.log(num)
+}
+fn()
+
+OK我们再来说一下return返回值又是什么？
+
+return返回值是把return跟的数据返回给一个对象用的。
+
+你像下面这段代码：
+
+function fn1 () {
+  var name = '张三';
+}
+console.log(fn1()) // undefined
+
+function fn2 () {
+  var num = 2;
+  return {
+    name: '张三'
+  }
+  console.log(num)
+}
+console.log(fn2()) // {name: "张三"}
+
+我们发现调用fn1函数的时候返回一个undefined，
+
+但是fn1函数里确实有一个变量但是没打印出来打印了一个undefined，
+
+这是因为fn1函数没有返回值，var name = '张三'是fn1函数作用域的，
+
+它并没有拿到，必须要使用return把对象返回给函数才能拿到，
+
+由于return终止线程上某个任务对象的进程的，它后面的代码是不会运行的，
+
+所以不会打印fn2函数体内的console.log(num)
+
+
+所以return一般情况下是不会让它在全局使用的，
+
+除非你return后面不写代码了，否则return后面写的代码都不会执行的。
+
+return通常都是作用于function函数中使用的。
+
+

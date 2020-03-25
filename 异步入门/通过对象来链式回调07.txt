@@ -1,0 +1,107 @@
+﻿如何通过对象来链式回调？
+
+var obj = {
+  num: 1,
+  then: function (fn) {
+    this.num = fn(this.num)
+  }
+}
+
+obj.then(function (res) {
+  console.log(res)
+}).then(function (res) {
+  console.log(res)
+})
+
+发现不可以实现链式调用，为什么呢？
+
+因为obj可以通过点来访问调用then()，因为obj是一个对象，它有then属性和then属性的值，
+
+then的属性值是是一个方法。
+
+而调用then()之后then()方法没有返回值是一个then()方法默认返回一个undefined。
+
+我们再回顾一下“return返回值03.txt”。
+
+我们要想让then拿到返回值必须return 一个对象，所以代码如下：
+
+var obj = {
+  num: 1,
+  then: function (fn) {
+    this.num = fn(this.num)
+    return this;
+  }
+}
+
+obj.then(function (res) {
+  console.log(res)
+}).then(function (res) {
+  console.log(res)
+})
+我们发现可以是可以了，但是第二个then回调时是一个undefined，为什么呢？
+
+我们来详细的分析一下代码：
+
+var obj = {
+  num: 1,
+  then: function (fn) {
+    this.num = fn(this.num)
+    return this;
+  }
+}
+
+obj.then(function (res) {
+  console.log(res)
+})
+
+在obj对象中then的函数里fn(this.num)是不是一个传参调用？
+
+接着又把值赋值num,由于then的函数里调用一个匿名函数fn(this.num)，
+
+但是匿名函数
+
+function (res) {
+  console.log(res)
+}
+
+并没有返回值，所以它默认返回一个undefined赋值给num属性，
+
+所以你第二次回调的时候把undefined传过来了，
+
+所以如果要想让回调的匿名函数有返回值必须要return一个值过来。代码如下：
+
+
+var obj = {
+  num: 1,
+  then: function (fn) {
+    this.num = fn(this.num)
+    return this;
+  }
+}
+
+obj.then(function (res) {
+  console.log(res)
+  return res
+}).then(function (res) {
+  console.log(res)
+})
+
+但是我们发现这都是做链式的编程的，
+
+我现在需要一个在同步任务之后再去把数据传给链式调用来处理像下述代码一样：
+
+new Promise((resolve) => {
+  var num = 2;
+  if (num > 1) {
+    resolve(num)
+  }
+}).then(res => {
+  return res;
+}).then(res => {
+  console.log(res)
+})
+
+这样的该咋做？
+
+请阅读“同步任务与异步处理08.txt”
+

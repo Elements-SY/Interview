@@ -1,0 +1,78 @@
+var obj = {
+  num: 1,
+  then: function (fn) {
+    this.num = fn(this.num)
+    return this;
+  }
+}
+
+obj.then(function (res) {
+  console.log(res)
+  return res
+}).then(function (res) {
+  console.log(res)
+})
+
+但是我们发现这都是做链式的编程的，
+
+我现在需要一个在同步任务之后再去把数据传给链式调用来处理像下述代码一样：
+
+new Promise((resolve) => {
+  var num = 2;
+  if (num > 1) {
+    resolve(num)
+  }
+}).then(res => {
+  return res;
+}).then(res => {
+  console.log(res)
+})
+
+那上述这样是不是一个构造函数？
+
+我们就要把上面字面量的方式写成一个构造函数。
+
+function Aiesec (fn) {
+  this.value = undefined;
+  this.then = (resolve) => {
+    this.value = resolve(this.value)
+  },
+    // fn(function (res) { // 关于这个问题请看“什么是this04.txt”
+    fn(res => {
+      this.value = res
+    })
+}
+var aiesec = new Aiesec((resolve) => {
+  resolve(1)
+}).then(res => {
+  console.log(res)
+  return res + 1;
+}).then(res => {
+  console.log(res)
+})
+我们发现不能进行链式调用，为什么？
+
+请阅读“通过对象来链式回调07.txt”
+
+哦，原来是这么回事，OK那么我们给它返回一个对象，代码如下:
+
+
+function Aiesec (fn) {
+  this.value = undefined;
+  this.then = (resolve) => {
+    this.value = resolve(this.value)
+    return this;
+  },
+    // fn(function (res) { // 关于这个问题请看“什么是this04.txt”
+    fn(res => {
+      this.value = res
+    })
+}
+var aiesec = new Aiesec((resolve) => {
+  resolve(1)
+}).then(res => {
+  console.log(res)
+  return res + 1;
+}).then(res => {
+  console.log(res)
+})

@@ -1,0 +1,25 @@
+﻿通过调用对象的方法来做回调,
+
+先写一个对象的方法代码如下：
+var obj = {
+  num: 1,
+  then: function () {
+    
+  }
+}
+obj.then()
+
+OK，我们再写一个通过调用对象的方法来做回调，
+
+先回顾一下“函数的引用地址02.txt”的内容
+
+var obj = {
+  num: 1,
+  then: function (fn) {
+    this.num = fn(this.num)
+  }
+}
+
+obj.then(function (res) {
+  console.log(res)
+})

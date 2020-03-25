@@ -1,0 +1,24 @@
+﻿var obj = {
+  fn1: function () {
+    console.log(this)
+  },
+  fn2: () => {
+    console.log(this)
+  },
+}
+obj.fn1() // {fn1: ƒ, fn2: ƒ}
+obj.fn2() // Window {}
+
+function Puppy () {
+  var that = this;
+  this.name = '猫咪';
+  this.eat = () => {
+    console.log(this) // Puppy {name: "猫咪", eat: ƒ}
+  }
+  function sum () {
+    that.eat()
+    console.log(this) // Window {}
+  }
+  sum()
+}
+new Puppy()
