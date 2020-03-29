@@ -44,7 +44,6 @@
 // var animal = new Animal();
 // console.log(animal)
 
-
 /*
  这样写会报错，extends只能继承来自Animal原型上的，不能继承Animal 构造器上的(constructor)，
  如果要想继承Animal 构造器上的(constructor)的需要使用super代码如下:
@@ -62,7 +61,7 @@ class Dog {
 
 class Animal extends Dog {
   constructor() {
-    super(name);
+    super(name); // 用来接受继承Dog构造函数中的构造器内部的私有成员
     this.color = '白色'
   }
   eat () {
