@@ -1,0 +1,15 @@
+#box {
+  width: 350px;
+  height: 100px;
+  display: flex;
+}
+
+#box div:nth-of-type(2) {
+  width: 200px;
+  flex-basis: 120px;
+}
+
+/* 
+如果width与flex-basis并用，那么flex-basis会覆盖width，
+也就是说flex-basis的优先级高于width。
+*/

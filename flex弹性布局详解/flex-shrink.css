@@ -1,0 +1,53 @@
+#box {
+  width: 400px;
+  height: 300px;
+  border: 1px solid black;
+  display: flex;
+}
+
+#box div:nth-of-type(1) {
+  flex-basis: 120px;
+  flex-shrink: 1;
+}
+
+#box div:nth-of-type(2) {
+  flex-basis: 120px;
+  flex-shrink: 2;
+}
+
+#box div:nth-of-type(3) {
+  flex-basis: 120px;
+  flex-shrink: 3;
+}
+
+#box div:nth-of-type(4) {
+  flex-basis: 120px;
+  flex-shrink: 4;
+}
+
+/* 
+当父元素的宽度小于所有子元素的宽度的和时，
+子元素的宽度会减小。值越大，减小的越厉害。
+如果值为0，表示不减小。
+可以通过控制台审查每个子元素的宽来查看；
+*/
+
+/* 
+    如果flex: 1;那么显示以下几个构成的flex: 1
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: 0%;
+
+    如果flex: 2;那么显示以下几个构成的flex: 2
+    flex-grow: 2;
+    flex-shrink: 1;
+    flex-basis: 0%;
+
+    如果flex: 3;那么显示以下几个构成的flex: 3
+    flex-grow: 3;
+    flex-shrink: 1;
+    flex-basis: 0%;
+
+    总结：
+    flex-grow 属性用于设置或检索弹性盒子的扩展比率，值越大那么的伸缩的量就越大;
+  */

@@ -1,0 +1,34 @@
+﻿Uncaught SyntaxError: Unexpected identifier
+未捕获到   语法错误       期望的     标识符 
+
+上述所说的标识符 也就是 说的async关键字
+
+
+caught [kɔːt]
+v.接住;截住;拦住;接(落下的液体);抓住;握住
+catch的过去分词和过去式
+
+catch [kætʃ]
+v.接住;截住;拦住;接(落下的液体);抓住;握
+n.接(球等);总捕获量;扣拴物;扣件
+
+syntax [ˈsɪntæks]
+n.句法;句法规则;语构
+
+unexpected [ˌʌnɪkˈspektɪd] 
+adj.出乎意料的;始料不及的
+
+expected [ɪkˈspektɪd]
+adj. 预料的;预期的  
+v.预料;预期;预计;等待;期待;盼望;要求;指望
+expect的过去分词和过去式
+
+expect [ɪkˈspekt] 
+v.预料;预期;预计;等待;期待;盼望;要求;指望
+
+identifier [aɪˈdentɪfaɪər] 
+n.标识符，标识号，识别字(可用以进入程序或其中的数据集)
+
+
+valid [ˈvælɪd] 
+adj.(法律上)有效的;(正式)认可的;符合逻辑的;合理的;有根据的;确凿的;有效的;系统认可的
