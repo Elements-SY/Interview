@@ -1,0 +1,7 @@
+﻿npm 
+
+cnpm 
+
+npx: npx是一种在npm中安装工具，也可以被单独的下载使用,在npm 5.2.0 的时候发自动安装npx。
+
+nrm: nrm(npm registry manager )是npm的镜像源管理工具，有时候国外资源太慢，使用这个就可以快速地在 npm 源间切换。

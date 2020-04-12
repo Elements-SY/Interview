@@ -1,0 +1,25 @@
+/* flex 九宫格布局 */
+.flex {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.flex>li {
+  flex-grow: 1;
+  /* 子元素按1/n的比例进行拉伸 */
+  background-color: #4d839c;
+  text-align: center;
+  color: #fff;
+  font-size: 50px;
+  line-height: 2;
+}
+
+.flex>li:nth-of-type(3n) {
+  /* 选择个数是3的倍数的元素 */
+  margin-right: 0;
+}
+
+.flex>li:nth-of-type(n+7) {
+  /* 选择倒数的三个元素，n可以取0 */
+  margin-bottom: 0;
+}

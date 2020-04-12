@@ -1,0 +1,14 @@
+/* table 九宫格布局 */
+.table {
+  border-collapse: separate;
+  border-spacing: 0.57em;
+  font-size: 14px;
+  empty-cells: hide;
+  table-layout: fixed;
+}
+
+.table>tbody>tr>td {
+  text-align: center;
+  background-color: #889ed8;
+  overflow: hidden;
+}
