@@ -1,1 +1,2 @@
-﻿盒子模型的组成是有margin、border、padding、content组成。分为标准模型和IE模型   ，其中IE的盒子模型的内容区border和padding参与计算。
+﻿盒子模型的组成是有margin、border、padding、content组成。分为标准模型和IE模型   ，其中IE的盒
+子模型的内容区border和padding参与计算。
