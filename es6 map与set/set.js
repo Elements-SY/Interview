@@ -12,4 +12,4 @@
 var set = new Set(['a', 'b', 'a'])
 set.add('b')
 console.log(set); // {"a", "b"}
-        // Set返回一个没有重复的key, 不管向Set中追加多少个重复的值都不会重复
+  // Set返回一个没有重复的key, 不管向Set中追加多少个重复的值都不会重复

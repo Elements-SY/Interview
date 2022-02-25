@@ -15,10 +15,10 @@ var staff = new Proxy(staffInfo, {
 button.addEventListener('click', function () {
     staff // 不会触发Proxy代理对象的钩子函数get
     staff.name // 会触发Proxy代理对象的钩子函数get
-    // staff.sex // 会触发Proxy代理对象的钩子函数get,但是不会继承staff对象中
-    // staff.sex = 'girl' // 会触发Proxy代理对象的钩子函数get,会继承staff对象中
-    // console.log(staff)
-    // console.log(staffInfo)
+    staff.sex // 会触发Proxy代理对象的钩子函数get,但是不会继承staff对象中
+    staff.sex = 'girl' // 会触发Proxy代理对象的钩子函数get,会继承staff对象中
+    console.log(staff)
+    console.log(staffInfo)
 })
 
 /*

@@ -21,11 +21,11 @@ Object.defineProperty(staff, Symbol.for('age'), {
 });
 
 
-for (var i in staff) {
-  console.log(i);
-}
+// for (var i in staff) {
+//   console.log(i);
+// }
 
 console.log(staff)
-console.log(staff.name)
-console.log(staff[Symbol.for('age')])
+// console.log(staff.name)
+// console.log(staff[Symbol.for('age')])
 

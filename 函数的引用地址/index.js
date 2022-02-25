@@ -3,9 +3,10 @@ var obj = {
   num: 2,
   fn: function () {
     console.log(this.num)
-    return this;
+    // return this;
   }
 }
+obj.fn()
 var data = obj.fn;
 data()
 // 为什么打印 1 呢？不应该是 2 吗？

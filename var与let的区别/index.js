@@ -33,3 +33,11 @@ console.log(i); // 3
 // 为什么变量i等于3 ?上述是一个对象确实没问题，但普通变量并没有块级作用域这一说，只有function函数作用域，
 // 只有let才有块级作用域。
 // 变量c之所以没有报错，其原因与var c变量不在同一个作用域
+
+for (let num = 0; num < 10; num++) {
+  console.log(num);
+  // var num = '背景'
+  // console.log(i)
+}
+console.log(i)
+

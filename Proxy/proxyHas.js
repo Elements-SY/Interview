@@ -21,14 +21,16 @@ function proxyHas(obj) {
 var staffInfo = { name: 'John', age: 24 }
 
 // 工作人员
-var staff = { sex: 'boy', age: 25 }
+var staff = { sex: 'boy', age: 25, name: '张三' }
 
 // 【员工信息】代理对象之钩子函数has
 var proxy_has = proxyHas(staffInfo)
 
 button.addEventListener('click', function () {
+   // console.log(proxyHas(staffInfo))
    // 遍历对象中是否在员工信息存在某属性
    Object.keys(staff).forEach(key => {
+      console.log(proxy_has)
       if (key in proxy_has) {
          console.log(`在staffInfo对象找到的属性有: ${key}`)
       } else {
