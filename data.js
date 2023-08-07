@@ -1,12 +1,9 @@
 /*
-vite + typescript + vue3
+vite4 + typescript + vue3
 
-webpack & vite 
+webpack & vite4 
 
 vue2 & vue3
-
-
-
 
 
 */ 
